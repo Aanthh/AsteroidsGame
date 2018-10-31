@@ -35,9 +35,8 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   public void move ()   //move the floater in the current direction of travel
   {      
     //change the x and y coordinates by myDirectionX and myDirectionY       
-    myCenterX += myDirectionX;    
-    myCenterY += myDirectionY;     
-
+    myCenterX += myDirectionX;
+    myCenterY += myDirectionY;
     //wrap around screen    
     if(myCenterX >width)
     {     
@@ -51,15 +50,14 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     {    
       myCenterY = 0;    
     } 
-    
     else if (myCenterY < 0)
     {     
       myCenterY = height;    
     }   
   }   
-  public void show ()  //Draws the floater at the current position  
+  public void show () 
   {             
-    fill(myColor);   
+    fill(myColor);
     stroke(myColor);    
     
     //translate the (x,y) center of the ship to the correct position
@@ -83,4 +81,4 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     rotate(-1*dRadians);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }   
-} 
+}
