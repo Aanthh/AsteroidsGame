@@ -23,6 +23,7 @@ public void keyPressed()
 {
 	if(key == 'f')
 	{
+		background(155);
 		bob.setX((int)(Math.random()*900) + 1);
 		bob.setY((int)(Math.random()*900) + 1);
 		bob.setDirectionX((double)(0));
