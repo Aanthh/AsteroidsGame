@@ -1,5 +1,6 @@
 Spaceship bob;
 Star[] nightSky = new Star[200];
+Asteroid[] meteors = new Asteroid[15];
 public void setup() 
 {
 	size(900, 900);
@@ -8,6 +9,10 @@ public void setup()
 	{
 		nightSky[i] = new Star();
 	}
+	for(int i = 0; i < meteors.length; i++)
+	{
+		meteors[i] = new Asteroid();
+	}
 }
 public void draw() 
 {
@@ -15,6 +20,11 @@ public void draw()
 	for(int i = 0; i < nightSky.length; i++)
 	{
 		nightSky[i].show();
+	}
+	for(int i = 0; i < meteors.length; i++)
+	{
+		meteors[i].show();
+		meteors[i].move();
 	}
 	bob.show();
 	bob.move();
