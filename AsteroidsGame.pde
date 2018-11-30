@@ -1,6 +1,7 @@
 Spaceship bob;
 Star[] nightSky = new Star[200];
-Asteroid[] meteors = new Asteroid[15];
+ArrayList <Asteroid> meteors = new ArrayList <Asteroid>();
+int numAsteroids = 20;
 public void setup() 
 {
 	size(900, 900);
@@ -9,9 +10,9 @@ public void setup()
 	{
 		nightSky[i] = new Star();
 	}
-	for(int i = 0; i < meteors.length; i++)
+	for(int i = 0; i < numAsteroids; i++)
 	{
-		meteors[i] = new Asteroid();
+		meteors.add(new Asteroid());
 	}
 }
 public void draw() 
@@ -21,10 +22,15 @@ public void draw()
 	{
 		nightSky[i].show();
 	}
-	for(int i = 0; i < meteors.length; i++)
+	for(int i = 0; i < meteors.size(); i++)
 	{
-		meteors[i].show();
-		meteors[i].move();
+		meteors.get(i).move();
+		meteors.get(i).show();
+		float d = dist(bob.getX(), bob.getY(), meteors.get(i).getX(), meteors.get(i).getY());
+		if(d < 20)
+		{
+			meteors.remove(i);
+		}
 	}
 	bob.show();
 	bob.move();
