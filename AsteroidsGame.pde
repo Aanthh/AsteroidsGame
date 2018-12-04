@@ -1,7 +1,8 @@
 Spaceship bob;
 Star[] nightSky = new Star[200];
 ArrayList <Asteroid> meteors = new ArrayList <Asteroid>();
-int numAsteroids = 20;
+ArrayList <Bullet> bill = new ArrayList <Bullet>();
+int numAsteroids = 20; 
 public void setup() 
 {
 	size(900, 900);
@@ -18,6 +19,14 @@ public void setup()
 public void draw() 
 {
 	background(0);
+	for(int i = 0; i < bill.size(); i++){
+			bill.get(i).show();
+			bill.get(i).move();
+			if(bill.get(i).myCenterX > 899 || bill.get(i).myCenterX < 1 || bill.get(i).myCenterY > 899 || bill.get(i).myCenterY < 1)
+			{
+				bill.remove(i);
+			}
+	}
 	for(int i = 0; i < nightSky.length; i++)
 	{
 		nightSky[i].show();
@@ -32,11 +41,28 @@ public void draw()
 			meteors.remove(i);
 		}
 	}
+	for(int i = 0; i < bill.size(); i++)
+	{
+		for(int f = 0; f < meteors.size(); f++)
+		{
+			float d2 = dist(bill.get(i).getX(), bill.get(i).getY(), meteors.get(f).getX(), meteors.get(f).getY());
+			if(d2 < 20)
+			{
+				meteors.remove(f);
+				bill.remove(i);
+				break;
+			}
+		}
+	}
 	bob.show();
 	bob.move();
 }
 public void keyPressed()
 {
+	if(key == ' ')
+	{
+		bill.add(new Bullet(bob));
+	}
 	if(key == 'f')
 	{
 		background(155);
