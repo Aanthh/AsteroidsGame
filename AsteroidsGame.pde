@@ -3,8 +3,10 @@ Star[] nightSky = new Star[200];
 ArrayList <Asteroid> meteors = new ArrayList <Asteroid>();
 ArrayList <Bullet> bill = new ArrayList <Bullet>();
 int numAsteroids = 20; 
+int count;
 public void setup() 
 {
+	count = 0;
 	size(900, 900);
 	bob = new Spaceship();
 	for(int i = 0; i<nightSky.length; i++)
@@ -19,6 +21,8 @@ public void setup()
 public void draw() 
 {
 	background(0);
+	text("Score: " + count, 20, 30);
+	textSize(30);
 	for(int i = 0; i < bill.size(); i++){
 			bill.get(i).show();
 			bill.get(i).move();
@@ -50,6 +54,7 @@ public void draw()
 			{
 				meteors.remove(f);
 				bill.remove(i);
+				count = count + 1;
 				break;
 			}
 		}
