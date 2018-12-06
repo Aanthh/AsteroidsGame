@@ -2,7 +2,7 @@ class Bullet extends Floater
 {
 	public Bullet(Spaceship theShip)
 	{
-		myColor = #FF0000;
+		myColor = 255;
 		myCenterX = bob.getX();
 		myCenterY = bob.getY();
 		myPointDirection = bob.getPointDirection();
