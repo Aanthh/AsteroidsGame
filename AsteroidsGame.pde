@@ -2,7 +2,7 @@ Spaceship bob;
 Star[] nightSky = new Star[200];
 ArrayList <Asteroid> meteors = new ArrayList <Asteroid>();
 ArrayList <Bullet> bill = new ArrayList <Bullet>();
-int numAsteroids = 20; 
+int numAsteroids = 50; 
 int count;
 public void setup() 
 {
