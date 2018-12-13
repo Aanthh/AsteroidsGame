@@ -26,7 +26,7 @@ public void draw()
 	for(int i = 0; i < bill.size(); i++){
 			bill.get(i).show();
 			bill.get(i).move();
-			if(bill.get(i).myCenterX > 899 || bill.get(i).myCenterX < 1 || bill.get(i).myCenterY > 899 || bill.get(i).myCenterY < 1)
+			if(bill.get(i).getX() > 899 || bill.get(i).getX() < 1 || bill.get(i).getY() > 899 || bill.get(i).getY() < 1)
 			{
 				bill.remove(i);
 			}
